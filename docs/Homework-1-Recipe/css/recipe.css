@@ -1,63 +1,63 @@
 /* stylesheets of pie.html, by Yongye Fan, 19/09/2018 */
 body {
-	/* Extra Features 1: Background image */
-	background-attachment: fixed;
-	background-color: white;
-	background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
-	color: #404040;
-	font-family: Georgia, Garamond, serif;
-	font-size: 11pt;
+  /* Extra Features 1: Background image */
+  background-attachment: fixed;
+  background-color: white;
+  background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
+  color: #404040;
+  font-family: Georgia, Garamond, serif;
+  font-size: 11pt;
 }
 
 /* headings */
 h1, h2 {
-	background-color: #F0F0F0;
-	color: #A4A400;
-	font-family: "Century Gothic", "Futura", Verdana, sans-serif;
-	/* Extra Features 4: Wide headings */
-	letter-spacing: .2em;
-	text-decoration: underline;
+  background-color: #F0F0F0;
+  color: #A4A400;
+  font-family: "Century Gothic", "Futura", Verdana, sans-serif;
+  /* Extra Features 4: Wide headings */
+  letter-spacing: .2em;
+  text-decoration: underline;
 }
 
 h1 {
-	font-size: 22pt;
-	font-weight: bold;
-	text-align: center;
+  font-size: 22pt;
+  font-weight: bold;
+  text-align: center;
 }
 
 h2 {
-	font-size: 18pt;
-	font-weight: normal;
-	text-align: left;
+  font-size: 18pt;
+  font-weight: normal;
+  text-align: left;
 }
 
 /* paragraph */
 p {
-	text-align: left;
+  text-align: left;
 }
 
 /* list */
 ul li {
-	/* Extra Features 3: Pie bullet */
-	list-style-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif);
+  /* Extra Features 3: Pie bullet */
+  list-style-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif);
 }
 
 /* link */
 a {
-	color: #A4A400;
+  color: #A4A400;
 }
 
 /* user comments */
 .comments {
-	background-color: #FFFFC8;
-	font-style: italic;
+  background-color: #FFFFC8;
+  font-style: italic;
 }
 
 .major-steps {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .validator-images {
-	/* Extra Features 5: Borderless image links */
-	border: 0;
+  /* Extra Features 5: Borderless image links */
+  border: 0;
 }
