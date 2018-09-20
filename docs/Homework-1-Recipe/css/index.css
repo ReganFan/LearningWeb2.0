@@ -1,7 +1,6 @@
 /* stylesheets for index.html, by Yongye Fan, 19/09/2018 */
 body {
 	background-image: url(../images/background.jpg);
-	background-repeat: repeat;
 	background-attachment: fixed;
 	color: purple;
 	font-family: "Century Gothic", "Futura", Verdana, sans-serif;
