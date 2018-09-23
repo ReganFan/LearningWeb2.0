@@ -1,0 +1,148 @@
+/* movie.css, stylesheet for tmnt.html, by Yongye Fan, 22/09/2018 */
+body {
+  background-image: url(images/background.png);
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 8pt;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* top image banner */
+.banner {
+  background-image: url(images/bannerbackground.png);
+  height: 50px;
+  text-align: center;
+}
+
+h1 {
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: 24pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* overall content area */
+.content {
+  border-color: gray;
+  border-style: solid;
+  border-width: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  width: 800px;
+}
+
+.left-section {
+  float: left;
+  width: 550px;
+}
+
+/* overall rotten rating banner */
+.rating-banner {
+  background-image: url(images/rottenbackground.png);
+  color: white;
+  font-size: 8pt;
+  height: 83px;
+}
+
+/* the large rotten image */
+.rating-banner img {
+  vertical-align: bottom;
+}
+
+/* 32% rate */
+.rate {
+  color: red;
+  font-size: 48pt;
+  font-weight: bold;
+}
+
+/* the left column of reviews */
+.left-column {
+  float: left;
+  margin-left: 2%;
+  width: 47%;
+}
+
+/* the right column of reviews */
+.right-column {
+  float: right;
+  margin-right: 2%;
+  width: 47%;
+}
+
+.comments {
+  background-color: #E1D697;
+  border: 2px solid gray;
+  font-size: 8pt;
+  font-weight: bold;
+  overflow: hidden;
+  padding: 8px;
+}
+
+/* liked or disliked icon */
+.comments img {
+  float: left;
+  margin-right: 5px;
+}
+
+/* reviewer's information */
+.reviewer-info {
+  margin-bottom: 3em;
+  overflow: hidden;
+}
+
+/* the reviewer icon */
+.reviewer-info img {
+  float: left;
+  margin-right: 5px;
+}
+
+/* reviewer's publication */
+.publication {
+  font-style: italic;
+}
+
+/* general overview section */
+.right-section {
+  background-color: #A2B964;
+  float: right;
+  font-family: Arial, sans-serif;
+  font-size: 8pt;
+  width: 250px;
+}
+
+/* info list */
+.right-section dl {
+  margin: 10px;
+}
+
+dt {
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+dd {
+  /* this style value is measured by DevTools of Firefox */
+  margin-bottom: 1.28em;
+}
+
+.counting-bar {
+  background-color: #A2B964;
+  clear: both;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
+
+.validator-image {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}
+
+/* W3C icon */
+.validator-image img {
+  border: 0;
+}
