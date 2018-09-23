@@ -24,10 +24,10 @@ README.md                             // readme文档
 
 ## 开发平台工具
 
-1. **编辑器：**Sublime Text 3
-2. **系统：**Windows 10 - 64bit
-3. **浏览器：**Firefox 62.0.2(64bit)
-4. **浏览器插件：**PerfectPixel by WellDoneCode
+1. **编辑器：** Sublime Text 3
+2. **系统：** Windows 10 - 64bit
+3. **浏览器：** Firefox 62.0.2(64bit)
+4. **浏览器插件：** PerfectPixel by WellDoneCode
 
 ## 其他相关问题
 
