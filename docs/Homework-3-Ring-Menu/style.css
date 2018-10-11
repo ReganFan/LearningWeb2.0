@@ -1,0 +1,239 @@
+/* style.css, stylesheet for index.html, created by Yongye Fan, 10/10/2018 */
+/* Browser prefix is added by Autoprefixer */
+body {
+  bottom: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+}
+
+#at-plus-container {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 180px;
+}
+
+#bottom-positioner {
+  bottom: 25px;
+  height: 240px;
+  position: absolute;
+  width: 180px;
+}
+
+#button {
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 135px;
+  width: 50px;
+}
+
+#info-bar {
+  background-color: #7E7E7E;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  height: 26px;
+  left: 77px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 137px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 26px;
+  z-index: 1;
+}
+
+#button:hover #info-bar {
+  height: 130px;
+  left: 25px;
+  opacity: 1;
+  top: 0;
+  width: 130px;
+}
+
+.info {
+  height: 130px;
+  left: -52px;
+  position: absolute;
+  top: -52px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 130px;
+}
+
+#button:hover .info {
+  left: 0;
+  top: 0;
+}
+
+.info img {
+  padding-right: 8px;
+  vertical-align: text-top;
+}
+
+li {
+  list-style: none;
+}
+
+/* info statistics
+/* page user and page comment */
+.page span {
+  color: white;
+}
+
+.user span {
+  font-weight: bold;
+}
+
+.comment span {
+  font-size: 22pt;
+}
+
+/* mine posted and mine like */
+.mine span {
+  color: #079E6E;
+  font-weight: bold;
+}
+
+.mine {
+  display: inline;
+  position: relative;
+  right: 18px;
+  top: 8px;
+}
+
+#control-ring-container {
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  height: 180px;
+  left: 0;
+  position: absolute;
+  top: 60px;
+  width: 180px;
+}
+
+/* ring buttons */
+#control-ring li {
+  background-color: #7E7E7E;
+  background-position: center;
+  background-repeat: no-repeat;
+  -moz-background-size: 50%;
+    -o-background-size: 50%;
+       background-size: 50%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  height: 26px;
+  left: 77px;
+  opacity: 0;
+  position: absolute;
+  top: 77px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 26px;
+}
+
+#button:hover #control-ring li {
+  height: 33px;
+  opacity: 1;
+  width: 33px;
+}
+
+/* mask button */
+#button:hover #control-ring li:nth-child(1) {
+  background-image: url(assets/images/nomask.png);
+  left: 4px;
+  top: 48px;
+}
+
+/* history button */
+#button:hover #control-ring li:nth-child(2) {
+  background-image: url(assets/images/history.png);
+  left: 1px;
+  top: 88px;
+}
+
+/* message button */
+#button:hover #control-ring li:nth-child(3) {
+  background-image: url(assets/images/message.png);
+  left: 20px;
+  top: 124px;
+}
+
+.unread {
+  background-color: red;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  height: 20px;
+  position: absolute;
+  right: -10px;
+  text-align: center;
+  top: -5px;
+  width: 20px;
+}
+
+/* setting button */
+#button:hover #control-ring li:nth-child(4) {
+  background-image: url(assets/images/setting.png);
+  left: 56px;
+  top: 144px;
+}
+
+/* sign button */
+#button:hover #control-ring li:nth-child(5) {
+  background-image: url(assets/images/signin.png);
+  left: 97px;
+  top: 143px;
+}
+
+.apb {
+  height: 50px;
+  width: 50px;
+}
+
+.icon {
+  background-color: #979DD2;
+  background-image: url(assets/images/atplus_white.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -moz-background-size: 80%;
+    -o-background-size: 80%;
+       background-size: 80%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  height: 26px;
+  left: 77px;
+  position: absolute;
+  top: 137px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 26px;
+}
+
+#button:hover .icon {
+  background-color: #303F9F;
+  background-image: url(assets/images/atplus_green.png);
+  height: 50px;
+  left: 65px;
+  top: 135px;
+  width: 50px;
+}
