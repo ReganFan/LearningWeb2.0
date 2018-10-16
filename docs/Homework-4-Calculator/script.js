@@ -465,10 +465,12 @@ function isValid(exp) {
   var newExp = exp;
   var i = 0;
   var numbers = "0123456789e";
+  var operators = "^+-*/";
 
   if (newExp.indexOf("^^") != -1) return false;
 
-  if (newExp[newExp.length - 1] == "^") return false;
+  // all operands should exist
+  if (operators.indexOf(newExp[newExp.length - 1]) != -1) return false;
 
   // e is a irrational constant number, other numbers can not be adjacent to it
   while ((i = newExp.indexOf("e")) != -1) {
