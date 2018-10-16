@@ -10,8 +10,8 @@ window.onload = function() {
   // calculateFinish, if one calculation has finished
   calculateFinish = false;
   // urls of two audio sources
-  pressDownMp3URL = "audio/pressDown.mp3";
-  pressUpMp3URL = "audio/pressUp.mp3";
+  pressDownMp3URL = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-4-Calculator/audio/pressDown.mp3";
+  pressUpMp3URL = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-4-Calculator/audio/pressUp.mp3";
   // AudioContext object
   audio = new AudioContext();
 
