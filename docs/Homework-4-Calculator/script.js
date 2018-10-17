@@ -151,7 +151,6 @@ function calculateExpression(exp) {
   // replacement
   exp = exp.replace(/÷/g, "/");
   exp = exp.replace(/×/g, "*");
-  exp = exp.replace(/√/g, "*Math.sqrt(");
   exp = exp.replace(/sin/g, "*Math.sin");
   exp = exp.replace(/cos/g, "*Math.cos");
   exp = exp.replace(/tan/g, "*Math.tan");
@@ -161,6 +160,8 @@ function calculateExpression(exp) {
   exp = expressionPointCheck(exp);
   exp = expressionCheck(exp);
   exp = bracketMatch(exp);
+
+  exp = calculateSquare(exp);
 
   if (isValid(exp)) {
     exp = exp.replace(/e/g, "Math.E");
@@ -173,6 +174,7 @@ function calculateExpression(exp) {
     exp = bracketMatch(exp);
 
     // not recommand, if there is still sth wrong, throw exceptions
+    // this is the same as isValid
     try {
       exp = "" + eval(exp);
     } catch(errors) {
@@ -345,6 +347,43 @@ function factorial(n) {
   }
 
   return n * factorial(n - 1);
+}
+
+/* calculateSquare
+ * input: the expression string
+ * function: calculate all √n or √(n) in the expression
+ * return: the new expression string
+ */
+function calculateSquare(exp) {
+  var newExp = exp;
+  var tempExp = "";
+  var tempIndex = 0;
+  var numbers = "0123456789eπ.";
+
+  while ((i = newExp.indexOf("√")) != -1) {
+    tempIndex = i + 1;
+    // delete all the ( between √ and numbers
+    while (newExp[tempIndex] == "(") {
+      tempExp = newExp.substring(0, tempIndex);
+      newExp = tempExp + newExp.substring(tempIndex + 1);
+      tempIndex++;
+    }
+
+    while (numbers.indexOf(newExp[tempIndex]) != -1) {
+      tempIndex++;
+    }
+
+    // replace √n with its result
+    tempExp = newExp.substring(0, i);
+    if (numbers.indexOf(tempExp[tempExp.length - 1]) != -1 && tempExp[tempExp.length - 1] != ".") {
+      // add * between numbers and √
+      newExp = tempExp + "*" + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
+    } else {
+      newExp = tempExp + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
+    }
+  }
+
+  return newExp;
 }
 
 /* calculateFactorial
@@ -544,7 +583,7 @@ function exceptionSolutions(exp) {
   if ((i = newExp.indexOf("∞")) != -1 && "!^.+-×÷".indexOf(newExp[i + 1]) != -1) newExp = newExp.substring(0, i + 1);
 
   // the result may be too large
-  if (newExp.indexOf("e+") != -1 && newExp.length > 19) {
+  if (newExp.indexOf("e+") != -1 || newExp.length > 19) {
     value = parseFloat(newExp);
     newExp = "" + value.toPrecision(6);
   }
