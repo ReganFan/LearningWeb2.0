@@ -172,9 +172,15 @@ function calculateExpression(exp) {
     // bracket matching again
     exp = bracketMatch(exp);
 
-    exp = "" + eval(exp);
+    // not recommand, if there is still sth wrong, throw exceptions
+    try {
+      exp = "" + eval(exp);
+    } catch(errors) {
+      outputExpression = "错误";
+    }
 
-    outputExpression = exceptionSolutions(exp);
+    if (outputExpression != "错误") outputExpression = exceptionSolutions(exp);
+
     previousOutput = outputExpression;
   } else {
     outputExpression = "错误";
@@ -489,13 +495,32 @@ function isValid(exp) {
 
     if (newExp[tempIndex] == ".") return false;
 
-    newExp = newExp.substring(i + 1);
+    // there should be numbers to the left of !
+    tempIndex = i - 1;
+    while (newExp[tempIndex] == ")") {
+      tempIndex--;
+    }
+
+    if (numbers.indexOf(newExp[tempIndex]) == -1) return false;
+
+    // n!!!!!... is allowed
+    tempIndex = i;
+    while (newExp[tempIndex + 1] == "!") {
+      tempIndex++;
+    }
+    newExp = newExp.substring(tempIndex + 1);
   }
   newExp = exp;
 
   if (newExp.indexOf("()") != -1) return false;
 
   if (newExp[0] == ")" || newExp[newExp.length - 1] == "(") return false;
+
+  for (i = 0; i < newExp.length; i++) {
+    if (newExp[i] == "(" && (numbers + "(π").indexOf(newExp[i + 1]) == -1) return false;
+
+    if (newExp[i] == ")" && (numbers + ")π").indexOf(newExp[i - 1]) == -1) return false;
+  }
 
   return true;
 }
