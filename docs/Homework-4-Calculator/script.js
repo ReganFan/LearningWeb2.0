@@ -14,6 +14,8 @@ window.onload = function() {
   pressUpMp3URL = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-4-Calculator/audio/pressUp.mp3";
   // AudioContext object
   audio = new AudioContext();
+  // easterEggTimes, the Easter egg can only happen once
+  easterEggTimes = 0;
 
   var expression = document.getElementById("expression");
   var result = document.getElementById("result");
@@ -25,6 +27,8 @@ window.onload = function() {
     buttons[i].onclick = function() {
       writeExpression(this.textContent);
       expressionLengthCheck();
+
+      if (this.textContent == "=" && easterEggTimes == 0) easterEgg();
     };
 
     buttons[i].onmousedown = function() {
@@ -646,4 +650,19 @@ function loadSound(url) {
   };
 
   req.send();
+}
+
+/* easterEgg
+ * Easter egg in this calculator
+ * it will happen when you find a way to input "love" and then press the "=" button
+ * the song is "Can't forgive", sung by Cha Soo Kyung(KR)
+ */
+function easterEgg() {
+  var cantforgiveMp3URL = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-4-Calculator/audio/cantforgive.mp3";
+
+  if (document.getElementById("expression").textContent == "lo√e=" && document.getElementById("result").textContent == "错误") {
+    loadSound(cantforgiveMp3URL);
+    alert("Love must be wrong, right?\nYou are so sao!");
+    easterEggTimes++;
+  }
 }
