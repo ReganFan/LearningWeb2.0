@@ -28,7 +28,7 @@ window.onload = function() {
       writeExpression(this.textContent);
       expressionLengthCheck();
 
-      // if (this.textContent == "=" && easterEggTimes == 0) easterEgg();
+      if (this.textContent == "=" && easterEggTimes == 0) easterEgg();
     };
 
     buttons[i].onmousedown = function() {
@@ -714,7 +714,7 @@ function easterEgg() {
 
   if (document.getElementById("expression").textContent == "lo√e=" && document.getElementById("result").textContent == "错误") {
     loadSound(cantforgiveMp3URL);
-    alert("Love must be wrong, right?\nYou are so sao!");
+
     easterEggTimes++;
   }
 }
