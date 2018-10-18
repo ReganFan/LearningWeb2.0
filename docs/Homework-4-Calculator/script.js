@@ -163,18 +163,16 @@ function calculateExpression(exp) {
 
   exp = expressionPointCheck(exp);
   exp = expressionCheck(exp);
-  exp = bracketMatch(exp);
-
-  exp = calculateSquare(exp);
 
   if (isValid(exp)) {
     exp = exp.replace(/e/g, "Math.E");
     exp = exp.replace(/π/g, "Math.PI");
 
+    exp = calculateSquare(exp);
     exp = calculateFactorial(exp);
     exp = calculatePower(exp);
 
-    // bracket matching again
+    // bracket matching
     exp = bracketMatch(exp);
 
     // not recommand, if there is still sth wrong, throw exceptions
@@ -362,7 +360,7 @@ function calculateSquare(exp) {
   var newExp = exp;
   var tempExp = "";
   var tempIndex = 0;
-  var numbers = "0123456789eπ.";
+  var numbers = "0123456789.";
 
   while ((i = newExp.indexOf("√")) != -1) {
     tempIndex = i + 1;
@@ -370,20 +368,38 @@ function calculateSquare(exp) {
     while (newExp[tempIndex] == "(") {
       tempExp = newExp.substring(0, tempIndex);
       newExp = tempExp + newExp.substring(tempIndex + 1);
-      tempIndex++;
     }
 
-    while (numbers.indexOf(newExp[tempIndex]) != -1) {
-      tempIndex++;
+    // check √π and √e
+    if (newExp[tempIndex + 6] == "I") {
+      tempIndex += 7;
+    } else if (newExp[tempIndex + 5] == "E") {
+      tempIndex += 6;
+    } else {
+      while (numbers.indexOf(newExp[tempIndex]) != -1) {
+        tempIndex++;
+      }
     }
 
     // replace √n with its result
     tempExp = newExp.substring(0, i);
-    if (numbers.indexOf(tempExp[tempExp.length - 1]) != -1 && tempExp[tempExp.length - 1] != ".") {
+    if ((numbers + "IE").indexOf(tempExp[tempExp.length - 1]) != -1 && tempExp[tempExp.length - 1] != ".") {
       // add * between numbers and √
-      newExp = tempExp + "*" + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
+      if (newExp[tempIndex - 1] == "I") {
+        newExp = tempExp + "*" + Math.sqrt(Math.PI) + newExp.substring(tempIndex);
+      } else if (newExp[tempIndex - 1] == "E") {
+        newExp = tempExp + "*" + Math.sqrt(Math.E) + newExp.substring(tempIndex);
+      } else {
+        newExp = tempExp + "*" + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
+      }
     } else {
-      newExp = tempExp + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
+      if (newExp[tempIndex - 1] == "I") {
+        newExp = tempExp + Math.sqrt(Math.PI) + newExp.substring(tempIndex);
+      } else if (newExp[tempIndex - 1] == "E") {
+        newExp = tempExp + Math.sqrt(Math.E) + newExp.substring(tempIndex);
+      } else {
+        newExp = tempExp + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
+      }
     }
   }
 
@@ -513,6 +529,7 @@ function calculatePower(exp) {
 function isValid(exp) {
   var newExp = exp;
   var i = 0;
+  var tempIndex = 0;
   var numbers = "0123456789e";
   var operators = "^+-*/";
 
@@ -529,10 +546,25 @@ function isValid(exp) {
   }
   newExp = exp;
 
+  // the left substring of √ must be valid
+  while ((i = newExp.indexOf("√")) != -1) {
+    tempIndex = i + 1;
+    while (newExp[tempIndex] == "(") {
+      tempIndex++;
+    }
+
+    if (operators.indexOf(newExp[tempIndex]) != -1 && newExp[tempIndex] != "+") return false;
+
+    newExp = newExp.substring(i + 1);
+  }
+  newExp = exp;
+
   // only integers have factorial
   while ((i = newExp.indexOf("!")) != -1) {
-    var tempIndex = i - 1;
+    tempIndex = i - 1;
     while (numbers.indexOf(newExp[tempIndex]) != -1) {
+      if (newExp[tempIndex] == "e") return false;
+
       tempIndex--;
     }
 
@@ -560,7 +592,7 @@ function isValid(exp) {
   if (newExp[0] == ")" || newExp[newExp.length - 1] == "(") return false;
 
   for (i = 0; i < newExp.length; i++) {
-    if (newExp[i] == "(" && (numbers + "(π-+").indexOf(newExp[i + 1]) == -1) return false;
+    if (newExp[i] == "(" && (numbers + "(π-+M").indexOf(newExp[i + 1]) == -1) return false;
 
     if (newExp[i] == ")" && (numbers + ")π").indexOf(newExp[i - 1]) == -1) return false;
   }
