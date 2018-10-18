@@ -360,9 +360,15 @@ function calculateSquare(exp) {
   var newExp = exp;
   var tempExp = "";
   var tempIndex = 0;
+  var i = newExp.length - 1;
   var numbers = "0123456789.";
 
-  while ((i = newExp.indexOf("√")) != -1) {
+  while (i >= 0) {
+    if (newExp[i] != "√") {
+      i--;
+      continue;
+    }
+
     tempIndex = i + 1;
     // delete all the ( between √ and numbers
     while (newExp[tempIndex] == "(") {
@@ -392,6 +398,8 @@ function calculateSquare(exp) {
       } else {
         newExp = tempExp + "*" + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
       }
+
+      i = i - 2;
     } else {
       if (newExp[tempIndex - 1] == "I") {
         newExp = tempExp + Math.sqrt(Math.PI) + newExp.substring(tempIndex);
@@ -400,6 +408,8 @@ function calculateSquare(exp) {
       } else {
         newExp = tempExp + Math.sqrt(newExp.substring(i + 1, tempIndex)) + newExp.substring(tempIndex);
       }
+
+      i = i - 1;
     }
   }
 
@@ -416,6 +426,7 @@ function calculateFactorial(exp) {
   var newExp = exp;
   var tempExp = "";
   var tempIndex = 0;
+  var i = 0;
   // π and e are not included
   var numbers = "0123456789";
 
@@ -455,6 +466,7 @@ function calculatePower(exp) {
   var newExp = exp;
   var tempExp = "";
   var tempIndex = 0;
+  var i = 0;
   var numbers = "0123456789.";
   var base = 0;
   var exponent = 0;
@@ -610,6 +622,7 @@ function exceptionSolutions(exp) {
   var newExp = exp;
   var value = 0;
   var i = 0;
+
   if (newExp.indexOf("Infinity") != -1) {
     newExp = newExp.replace(/Infinity/g, "∞");
   }
@@ -622,6 +635,13 @@ function exceptionSolutions(exp) {
   if (newExp.indexOf("e+") != -1 || newExp.length > 19) {
     value = parseFloat(newExp);
     newExp = "" + value.toPrecision(6);
+  }
+
+  // the result may be too small
+  if (newExp.indexOf("e-") != -1) {
+    var exponent = parseInt(newExp.substring(newExp.indexOf("e-") + 2));
+
+    if (exponent > 14) newExp = "0";
   }
 
   // try to solve the precision problem about float numbers, for example, 0.6 * 3 should be 1.8 instead of 1.79999999
