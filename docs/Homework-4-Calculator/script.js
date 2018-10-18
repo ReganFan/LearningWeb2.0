@@ -28,7 +28,7 @@ window.onload = function() {
       writeExpression(this.textContent);
       expressionLengthCheck();
 
-      if (this.textContent == "=" && easterEggTimes == 0) easterEgg();
+      // if (this.textContent == "=" && easterEggTimes == 0) easterEgg();
     };
 
     buttons[i].onmousedown = function() {
