@@ -164,7 +164,8 @@ function calculateExpression(exp) {
   exp = expressionPointCheck(exp);
   exp = expressionCheck(exp);
 
-  exp = bracketMatch(exp);
+  // this statement has conflict with isValid which controls the operators adjacent to brackets
+  // exp = bracketMatch(exp);
 
   if (isValid(exp)) {
     exp = exp.replace(/e/g, "Math.E");
@@ -174,7 +175,7 @@ function calculateExpression(exp) {
     exp = calculateFactorial(exp);
     exp = calculatePower(exp);
 
-    // bracket matching again
+    // bracket matching
     exp = bracketMatch(exp);
 
     // not recommand, if there is still sth wrong, throw exceptions
