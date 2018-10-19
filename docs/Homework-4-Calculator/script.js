@@ -164,6 +164,8 @@ function calculateExpression(exp) {
   exp = expressionPointCheck(exp);
   exp = expressionCheck(exp);
 
+  exp = bracketMatch(exp);
+
   if (isValid(exp)) {
     exp = exp.replace(/e/g, "Math.E");
     exp = exp.replace(/π/g, "Math.PI");
@@ -172,7 +174,7 @@ function calculateExpression(exp) {
     exp = calculateFactorial(exp);
     exp = calculatePower(exp);
 
-    // bracket matching
+    // bracket matching again
     exp = bracketMatch(exp);
 
     // not recommand, if there is still sth wrong, throw exceptions
