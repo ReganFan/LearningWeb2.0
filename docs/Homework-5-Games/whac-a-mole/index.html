@@ -1,0 +1,41 @@
+<!-- index.html, a simple whac-a-mole web game, created by Yongye Fan, 21/10/2018 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Whac-a-mole</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Yongye Fan" />
+    <meta name="revised" content="Yongye Fan, 21/10/2018" />
+    <meta name="generator" content="Sublime Text 3" />
+    <meta name="description" content="Homework 5-Games" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h1>Whac-a-mole</h1>
+    <p class="rules">Test your skill. How many boxes(moles) can you check(hit) in 30 seconds?</p>
+
+    <div class="console-bar">
+      <button class="press-up" id="start-stop-button">Start Game | Stop Game</button>
+      <div id="game-state-bar">
+        <p class="hide-game-state" id="play">Play</p>
+        <p class="hide-game-state" id="pause">Pause</p>
+        <p class="hide-game-state" id="game-over">Game Over</p>
+      </div>
+      <div class="time-bar">Time:<p id="time">30</p></div>
+      <div class="score-bar">Score:<p id="score">0</p></div>
+    </div>
+
+    <div id="game-area"></div>
+
+    <div class="instructions">
+      <span>Instructions:</span>
+      <ol>
+        <li>Click on the radio buttons(moles) as they are selected randomly by the computer.</li>
+        <li>1 point per hit, minus 1 point per miss.</li>
+      </ol>
+    </div>
+  </body>
+</html>

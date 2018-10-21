@@ -1,0 +1,191 @@
+/* style.css, the stylesheet for index.html, created by Yongye Fan, 20/10/2018 */
+body {
+  font-family: "Century Gothic", sans-serif;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+h1 {
+  font-size: 27.5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.rules, #result p {
+  font-size: 21px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+#result {
+  height: 26px;
+  visibility: hidden;
+}
+
+#lose {
+  position: relative;
+  top: -41px;
+}
+
+#cheat {
+  position: relative;
+  top: -82px;
+}
+
+/* if the game ends, the game result will show */
+.show-result {
+  visibility: visible;
+}
+
+#game-area {
+  height: 264px;
+  margin: 15px auto 0 auto;
+  position: relative;
+  width: 439px;
+}
+
+.walls {
+  background-color: #EEE;
+  border: 1px solid #000;
+  list-style: none;
+}
+
+/* when the game starts, if you touch a wall, it will turn red */
+.walls-touch {
+  background-color: red;
+}
+
+#game-area ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* the walls in game area */
+#game-area ul li:nth-child(1) {
+  border-bottom-color: #EEE;
+  border-right-color: #EEE;
+  height: 44px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 131px;
+}
+
+#game-area ul li:nth-child(2) {
+  border-left-color: #EEE;
+  border-right-color: #EEE;
+  height: 44px;
+  left: 131px;
+  position: absolute;
+  top: 0;
+  width: 173px;
+}
+
+#game-area ul li:nth-child(3) {
+  border-bottom-color: #EEE;
+  border-left-color: #EEE;
+  height: 44px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 131px;
+}
+
+#game-area ul li:nth-child(4) {
+  border-top-color: #EEE;
+  height: 130px;
+  left: 0;
+  position: absolute;
+  top: 44px;
+  width: 131px;
+}
+
+#game-area ul li:nth-child(5) {
+  border-top-color: #EEE;
+  height: 130px;
+  position: absolute;
+  right: 0;
+  top: 44px;
+  width: 131px;
+}
+
+#game-area ul li:nth-child(6) {
+  border-bottom-color: #EEE;
+  bottom: 42px;
+  height: 131px;
+  left: 175px;
+  position: absolute;
+  width: 85px;
+}
+
+#game-area ul li:nth-child(7) {
+  border-right-color: #EEE;
+  bottom: 0;
+  height: 42px;
+  left: 0;
+  position: absolute;
+  width: 175px;
+}
+
+#game-area ul li:nth-child(8) {
+  border-left-color: #EEE;
+  border-right-color: #EEE;
+  border-top-color: #EEE;
+  bottom: 0;
+  height: 42px;
+  left: 175px;
+  position: absolute;
+  width: 85px;
+}
+
+#game-area ul li:nth-child(9) {
+  border-left-color: #EEE;
+  bottom: 0;
+  height: 42px;
+  position: absolute;
+  right: 0;
+  width: 175px;
+}
+
+/* the start and the end squares */
+#start, #end {
+  border-color: #000;
+  border-style: solid;
+  border-width: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 33px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 35px;
+}
+
+#start {
+  background-color: #80FF82;
+  bottom: 47px;
+  left: 0;
+  position: absolute;
+}
+
+#end {
+  background-color: #8683FF;
+  bottom: 47px;
+  position: absolute;
+  right: 0;
+}
+
+#hints {
+  font-size: 14px;
+  margin: 0 auto 0 auto;
+  width: 535px;
+}
+
+#hints .walls {
+  height: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90px;
+}

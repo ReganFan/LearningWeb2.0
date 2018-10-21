@@ -1,0 +1,48 @@
+<!-- index.html, a simple mouse maze web game, created by Yongye Fan, 20/10/2018 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mouse Maze</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Yongye Fan" />
+    <meta name="revised" content="Yongye Fan, 20/10/2018" />
+    <meta name="generator" content="Sublime Text 3" />
+    <meta name="description" content="Homework 5-Games" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <h1>The Amazing Mouse Maze!</h1>
+    <p class="rules">Move your mouse over the "S" to begin.</p>
+
+    <div id="result">
+      <p id="win">You Win</p>
+      <p id="lose">You Lose</p>
+      <p id="cheat">Don't cheat, you should start from the 'S' and move to the 'E' inside the maze!</p>
+    </div>
+
+    <div id="game-area">
+      <ul>
+        <li class="walls"></li>
+        <li class="walls"></li>
+        <li class="walls"></li>
+        <li class="walls"></li>
+        <li class="walls"></li>
+        <li class="walls"></li>
+        <li class="walls"></li>
+        <li class="walls"></li>
+        <li class="walls"></li>
+      </ul>
+      <p id="start">S</p>
+      <p id="end">E</p>
+    </div>
+
+    <div id="hints">
+      <p>The object of this game is to guide the mouse cursor through the start area and get to the end area. Be sure to avoid the walls:</p>
+      <div class="walls"></div>
+      <p>Good luck!</p>
+    </div>
+  </body>
+</html>
