@@ -13,19 +13,19 @@
 
 ```
 |-- maze/
-	index.html                         // 迷宫游戏的html文件
-	style.css                          // 迷宫游戏的css文件
-	script.js                          // 迷宫游戏的js文件
+  index.html                         // 迷宫游戏的html文件
+  style.css                          // 迷宫游戏的css文件
+  script.js                          // 迷宫游戏的js文件
 |-- whac-a-mole/
-	index.html                         // 打地鼠游戏的html文件
-	style.css                          // 打地鼠游戏的css文件
-	script.js                          // 打地鼠游戏的js文件
+  index.html                         // 打地鼠游戏的html文件
+  style.css                          // 打地鼠游戏的css文件
+  script.js                          // 打地鼠游戏的js文件
 |-- output/
-	output_maze.png                    // 迷宫游戏样例输出
-	output_whac_a_mole.png             // 打地鼠游戏样例输出
+  output_maze.png                    // 迷宫游戏样例输出
+  output_whac_a_mole.png             // 打地鼠游戏样例输出
 README.md                               // readme文档
 ```
 
 ## 其他相关问题
 
-4. 经个人测试，上述的html和css文件均已成功通过W3C的网页检测。
+1. 经个人测试，上述的html和css文件均已成功通过W3C的网页检测。
