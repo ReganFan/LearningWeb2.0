@@ -18,9 +18,7 @@ window.onload = function() {
 
   var allWalls = document.getElementsByTagName("li");
   for (var i = 0; i < allWalls.length; i++) {
-    if (i != 0 && i != 2 && i != 7) {
-      allWalls[i].addEventListener("mouseover", gameLose);
-    }
+    allWalls[i].addEventListener("mouseover", gameLose);
   }
 
   document.getElementById("end").addEventListener("mouseover", gameWin);
@@ -69,7 +67,7 @@ function gameReset() {
 
 // if game has started, and you touch the walls, you lose, the wall will turn red
 function gameLose(event) {
-  if (ifStart == 1 && event.target.className == "walls" && outOfGameArea != 1) {
+  if (ifStart == 1 && event.target.className == "walls") {
     event.target.className += " walls-touch";
     ifStart = 0;
     ifEnd = 1;
