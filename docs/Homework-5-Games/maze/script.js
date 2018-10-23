@@ -68,7 +68,7 @@ function gameReset() {
 }
 
 // if game has started, and you touch the walls, you lose, the wall will turn red
-function gameLose() {
+function gameLose(event) {
   if (ifStart == 1 && event.target.className == "walls" && outOfGameArea != 1) {
     event.target.className += " walls-touch";
     ifStart = 0;

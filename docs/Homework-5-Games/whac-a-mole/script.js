@@ -84,7 +84,7 @@ function selectMole() {
 }
 
 // if hit the true mole, score and the mole turns gray, then choose next mole
-function hit() {
+function hit(event) {
   if (time != 31 && time != 0 && pause != 1 && event.target.className.indexOf("moles") != -1) {
     if (event.target.className.indexOf("mole-selected") != -1) {
       score++;
