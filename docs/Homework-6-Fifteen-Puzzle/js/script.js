@@ -15,6 +15,7 @@ function addJigsawPart() {
   $("#game-area").append($jigsawPart);
 }
 
+// divide the pic into jigsaw
 function divide() {
   var sideLen = picLength / dimension;
 
@@ -77,7 +78,7 @@ function addPicList() {
   for (var j = 0; j < picNumOneList; j++) addPic(j, picNameRightList, "right");
 }
 
-function changePic() {
+function changePic(event) {
   var $target = $(event.target);
   if (!$target.is("button")) return;
 
@@ -92,6 +93,7 @@ function changePic() {
   ifStart = false;
 }
 
+// the pic chosen can be highlighted
 function choosePic() {
   var $picButtons = $("#jigsaw-part").find("button");
 
@@ -125,7 +127,7 @@ function ifAdjacent(divIndex1, divIndex2) {
          (leftDiffer == -interval && topDiffer == 0);
 }
 
-function move() {
+function move(event) {
   var $target = $(event.target);
   if (!$target.is("div")) return;
 
@@ -179,6 +181,51 @@ function move() {
   }
 }
 
+function voicePrompt(tag) {
+  var $divParts = $("#jigsaw-part").find("div");
+  var $picButtons = $("#jigsaw-part").find("button");
+  var picName;
+
+  for (var i = 0; i < $picButtons.length; i++) {
+    if ($picButtons.eq(i).hasClass("pic-chosen")) {
+      picName = $picButtons.eq(i).attr("name");
+      break;
+    }
+  }
+
+  for (var j = 0; j < Math.pow(dimension, 2); j++) {
+    if ($divParts.eq(j).attr("no") != j) return;
+  }
+
+  var voiceUrl = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-6-Fifteen-Puzzle/asserts/audio/" +
+                 picName + "_" + tag + ".mp3";
+
+  var audio = new AudioContext();
+
+  /* loadSound
+   * function: load sound from url
+   * source: https://jingyan.baidu.com/article/9c69d48fe16ac313c9024efe.html
+   * thank caoshixuan100 for sharing
+   */
+  (function loadSound(url) {
+    var req = new XMLHttpRequest();
+
+    req.open('GET', url, true);
+    req.responseType = 'arraybuffer';
+
+    req.onload = function() {
+      audio.decodeAudioData(req.response, function(buffer) {
+        var source = audio.createBufferSource();
+        source.buffer = buffer;
+        source.connect(audio.destination);
+        source.start(0);
+      }, function(error) { console.info("Error!"); });
+    };
+
+    req.send();
+  })(voiceUrl);
+}
+
 // Fisher-Yates shuffle
 // Thank https://www.zhihu.com/question/68330851
 Array.prototype.shuffle = function() {
@@ -210,6 +257,9 @@ function canRestore(array) {
 }
 
 function restart() {
+  // voice prompts for starting
+  voicePrompt("start");
+
   var $jigsawPart = $("#jigsaw-part");
   var $divParts = $jigsawPart.find("div");
   $divParts.remove();
@@ -226,14 +276,14 @@ function restart() {
   }
   arr.push(Math.pow(dimension, 2) - 1);
 
-  // Adding
+  // Adding div parts according to the array
   var sideLen = picLength / dimension;
   var leftValue, topValue, newDivPart;
 
   for (var i = 0; i < Math.pow(dimension, 2); i++) {
     leftValue = (i % dimension) * (sideLen + 1);
     topValue = parseInt(i / dimension) * (sideLen + 1);
-    newDivPart = $divParts.eq(arr[i]);
+    newDivPart = $divParts.filter("[no=" + arr[i] +"]");
 
     newDivPart.attr({
       "left": leftValue,
@@ -259,9 +309,11 @@ function win() {
       if ($divParts.eq(i).attr("no") != i) return;
     }
 
-    setTimeout(function() {
-      alert("You Win!");
-    }, 200);
+    // voice prompts for ending
+    voicePrompt("end");
+    // setTimeout(function() {
+    //   alert("You Win!");
+    // }, 200);
     ifStart = false;
   }
 }
