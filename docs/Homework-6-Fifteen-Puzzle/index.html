@@ -1,0 +1,34 @@
+<!-- index.html, a simple web jigsaw puzzle, created by Yongye Fan, 08/11/2018 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Puzzle Game</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Yongye Fan" />
+    <meta name="revised" content="Yongye Fan, 08/11/2018" />
+    <meta name="generator" content="Sublime Text 3" />
+    <meta name="description" content="Homework 6-Fifteen Puzzle" />
+
+    <!-- stylesheets link -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
+    <!-- favicon link -->
+    <link rel="shortcut icon" type="image/png" href="./asserts/images/jigsaw.png" />
+    <!-- javascript link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.11/lodash.core.js"></script>
+    <script src="./js/script.js"></script>
+  </head>
+
+  <body>
+    <h1>Simple Jigsaw Puzzle</h1>
+
+    <div id="game-area"></div>
+
+    <div id="control-bar">
+      <button class="control-button" id="restore">自动还原</button>
+      <button class="control-button" id="start">重新开始</button>
+      <button class="control-button" id="level">难度切换</button>
+    </div>
+  </body>
+</html>

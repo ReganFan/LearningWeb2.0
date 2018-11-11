@@ -1,0 +1,103 @@
+/* style.css, the stylesheet for index.html, created by Yongye Fan, 08/11/2018 */
+html {
+  cursor: url(../asserts/images/cursor_auto.cur), auto;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url(../asserts/images/mttargon-once-in-a-lifetime.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+h1 {
+  color: #E7DDAB;
+  font-family: "Century Gothic", "Microsoft YaHei UI Light", "Bahnschrift Light", "Calibri Light", Arial, sans-serif;
+  font-size: 40px;
+  letter-spacing: .1em;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+#game-area {
+  height: 390px;
+}
+
+#control-bar {
+  height: 80px;
+  text-align: center;
+}
+
+.control-button {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, .7);
+  border-color: #E7DDAB;
+  border-style: solid;
+  border-width: 1px;
+  color: #E7DDAB;
+  cursor: url(../asserts/images/cursor_pointer.cur), pointer;
+  font-family: "Microsoft YaHei UI";
+  font-size: 15px;
+  font-weight: bold;
+  height: 40px;
+  margin: 20px;
+  opacity: .5;
+  outline: none;
+  padding: 0;
+  text-align: center;
+  transition: .5s;
+  width: 160px;
+}
+
+.control-button:hover {
+  opacity: 1;
+}
+
+.jigsaw-area {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.div-part {
+  /*background-attachment: fixed;*/
+  border-color: #7D7D7D;
+  border-style: solid;
+  border-width: 1px;
+  opacity: .9;
+  position: absolute;
+}
+
+.div-part:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.pic-button {
+  background-size: cover;
+  border-color: #7D7D7D;
+  border-style: solid;
+  border-width: 1px;
+  cursor: url(../asserts/images/cursor_pointer.cur), pointer;
+  opacity: .4;
+  outline: none;
+  padding: 0;
+  position: absolute;
+  transition: 0.2s;
+}
+
+.pic-button:hover {
+  border-color: #E7DDAB;
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+.pic-chosen {
+  border-color: #E7DDAB;
+  opacity: 1;
+  transform: scale(1.02);
+}
