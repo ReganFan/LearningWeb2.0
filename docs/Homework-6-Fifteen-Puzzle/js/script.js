@@ -334,7 +334,11 @@ function changeLevel() {
   if (dimension != 5) dimension++;
   else dimension = 3;
 
-  initialize();
+  $("#jigsaw-part").find("div").remove();
+
+  divide();
+
+  ifStart = false;
 }
 
 function gameStart() {
