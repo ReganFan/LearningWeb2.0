@@ -12,8 +12,6 @@ window.onload = function() {
   // urls of two audio sources
   pressDownMp3URL = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-4-Calculator/audio/pressDown.mp3";
   pressUpMp3URL = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-4-Calculator/audio/pressUp.mp3";
-  // AudioContext object
-  audio = new AudioContext();
   // easterEggTimes, the Easter egg can only happen once
   easterEggTimes = 0;
 
@@ -37,14 +35,17 @@ window.onload = function() {
       this.style.left = "0";
       this.style.top = "5px";
 
-      loadSound(pressDownMp3URL);
+      // AudioContext object
+      var audio = new AudioContext();
+      loadSound(pressDownMp3URL, audio);
     };
 
     buttons[i].onmouseup = function() {
       this.style.boxShadow = "0 8px 0 #7F8C8D";
       this.style.position = "static";
 
-      loadSound(pressUpMp3URL);
+      var audio = new AudioContext();
+      loadSound(pressUpMp3URL, audio);
     };
   }
 };
@@ -689,7 +690,7 @@ function expressionLengthCheck() {
  * source: https://jingyan.baidu.com/article/9c69d48fe16ac313c9024efe.html
  * thank caoshixuan100 for sharing
  */
-function loadSound(url) {
+function loadSound(url, audio) {
   var req = new XMLHttpRequest();
 
   req.open('GET', url, true);
@@ -716,7 +717,8 @@ function easterEgg() {
   var cantforgiveMp3URL = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-4-Calculator/audio/cantforgive.mp3";
 
   if (document.getElementById("expression").textContent == "lo√e=" && document.getElementById("result").textContent == "错误") {
-    loadSound(cantforgiveMp3URL);
+    var audio = new AudioContext();
+    loadSound(cantforgiveMp3URL, audio);
 
     easterEggTimes++;
   }

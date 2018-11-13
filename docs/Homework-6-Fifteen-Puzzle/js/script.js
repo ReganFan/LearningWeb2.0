@@ -4,6 +4,8 @@ var dimension = 4;
 var picLength = 360;
 var picUrl = "./asserts/images/Riven.jpg";
 var ifStart = false;
+var time;
+var timer;
 
 function addJigsawPart() {
   $("#jigsaw-part").remove();
@@ -23,6 +25,13 @@ function divide() {
     var $divPart = $("<div></div>");
     $divPart.addClass("div-part").attr("no", i).width(sideLen).height(sideLen);
 
+    var $tip = $("<div></div>");
+    $tip.html(i + 1).addClass("tips").width(sideLen / 4).height(sideLen / 4);
+    if ($("#tips").attr("show") == "no") $tip.css("opacity", 0);
+    else $tip.css("opacity", 1);
+
+    $divPart.append($tip);
+
     var posX = (i % dimension) * sideLen;
     var posY = parseInt(i / dimension) * sideLen;
     var leftValue = (i % dimension) * (sideLen + 1);
@@ -37,10 +46,12 @@ function divide() {
       "background-image": "url(" + picUrl + ")",
       "background-position": -posX + "px " + -posY + "px",
       left: leftValue + "px",
-      top: topValue + "px"
+      top: topValue + "px",
+      opacity: ".4"
     });
 
     if (i == Math.pow(dimension, 2) - 1) $divPart.css("opacity", 0);
+    else $divPart.animate({opacity: ".9"}, 500);
 
     $("#jigsaw-part").append($divPart);
   }
@@ -82,7 +93,12 @@ function changePic(event) {
   var $target = $(event.target);
   if (!$target.is("button")) return;
 
-  var $divParts = $("#jigsaw-part").find("div");
+  // recover time
+  clearInterval(timer);
+  time = -1;
+  timing();
+
+  var $divParts = $("#jigsaw-part").find("div").not(".tips");
 
   picUrl = "./asserts/images/" + $target.attr("name") + ".jpg";
 
@@ -113,7 +129,7 @@ function choosePic() {
 }
 
 function ifAdjacent(divIndex1, divIndex2) {
-  var $divParts = $("#jigsaw-part").find("div");
+  var $divParts = $("#jigsaw-part").find("div").not(".tips");
   var div1 = $divParts.eq(divIndex1);
   var div2 = $divParts.eq(divIndex2);
   var interval = picLength / dimension + 1;
@@ -127,11 +143,49 @@ function ifAdjacent(divIndex1, divIndex2) {
          (leftDiffer == -interval && topDiffer == 0);
 }
 
+// Exchange the positions of the blank and one div part
+function divExchange(divIndex, blankIndex, divPart, blank) {
+  if (blankIndex != 0) {
+    var preBlank = blank.prev();
+    divPart.before(blank);
+    preBlank.after(divPart);
+  } else {
+    var afterDivPart = divPart.next();
+    blank.before(divPart);
+    afterDivPart.before(blank);
+  }
+
+  var tempLeft = divPart.attr("left");
+  var tempTop = divPart.attr("top");
+
+  divPart.animate({
+    left: blank.attr("left") + "px",
+    top: blank.attr("top") + "px"
+  }, 200);
+
+  divPart.attr({
+    "left": blank.attr("left"),
+    "top": blank.attr("top")
+  });
+
+  blank.css({
+    left: tempLeft + "px",
+    top: tempTop + "px"
+  });
+
+  blank.attr({
+    "left": tempLeft,
+    "top": tempTop
+  });
+}
+
 function move(event) {
   var $target = $(event.target);
   if (!$target.is("div")) return;
 
-  var $divParts = $("#jigsaw-part").find("div");
+  if ($target.is(".tips")) $target = $target.parent();
+
+  var $divParts = $("#jigsaw-part").find("div").not(".tips");
   var blankNo = Math.pow(dimension, 2) - 1;
   var $blank = $divParts.filter("[no=" + blankNo + "]");
   var divIndex = 0;
@@ -146,43 +200,12 @@ function move(event) {
 
   if (ifAdjacent(divIndex, blankIndex) && ifStart) {
     // Exchange
-    if (blankIndex != 0) {
-      var preBlank = $blank.prev();
-      $target.before($blank);
-      preBlank.after($target);
-    } else {
-      var afterTarget = $target.next();
-      $blank.before($target);
-      afterTarget.before($blank);
-    }
-
-    var tempLeft = $target.attr("left");
-    var tempTop = $target.attr("top");
-
-    $target.animate({
-      left: $blank.attr("left") + "px",
-      top: $blank.attr("top") + "px"
-    }, 200);
-
-    $target.attr({
-      "left": $blank.attr("left"),
-      "top": $blank.attr("top")
-    });
-
-    $blank.css({
-      left: tempLeft + "px",
-      top: tempTop + "px"
-    });
-
-    $blank.attr({
-      "left": tempLeft,
-      "top": tempTop
-    });
+    divExchange(divIndex, blankIndex, $target, $blank);
   }
 }
 
 function voicePrompt(tag) {
-  var $divParts = $("#jigsaw-part").find("div");
+  var $divParts = $("#jigsaw-part").find("div").not(".tips");
   var $picButtons = $("#jigsaw-part").find("button");
   var picName;
 
@@ -226,6 +249,32 @@ function voicePrompt(tag) {
   })(voiceUrl);
 }
 
+function timing() {
+  var $timeBar = $("#time-bar");
+  var $minute = $("<span></span>");
+  var $second = $("<span></span>");
+  var minute = 0;
+  var second = 0;
+
+  $timeBar.find("span").filter(".minute").remove();
+  $timeBar.find("span").filter(".second").remove();
+
+  time++;
+
+  minute = parseInt(time / 60);
+  second = time % 60;
+
+  if (minute < 10) $minute.html("0" + minute);
+  else $minute.html(minute);
+
+  if (second < 10) $second.html("0" + second);
+  else $second.html(second);
+
+  $minute.addClass("minute");
+  $second.addClass("second");
+  $timeBar.prepend($minute).append($second);
+}
+
 // Fisher-Yates shuffle
 // Thank https://www.zhihu.com/question/68330851
 Array.prototype.shuffle = function() {
@@ -260,8 +309,13 @@ function restart() {
   // voice prompts for starting
   voicePrompt("start");
 
+  // recover time
+  clearInterval(timer);
+  time = -1;
+  timing();
+
   var $jigsawPart = $("#jigsaw-part");
-  var $divParts = $jigsawPart.find("div");
+  var $divParts = $jigsawPart.find("div").not(".tips");
   $divParts.remove();
 
   // How to create an array with length of 100 without loops
@@ -276,33 +330,37 @@ function restart() {
   }
   arr.push(Math.pow(dimension, 2) - 1);
 
-  // Adding div parts according to the array
+  // Moving div parts according to the array / changing the div part positions first
   var sideLen = picLength / dimension;
-  var leftValue, topValue, newDivPart;
+  var leftValue, topValue, aDivPart;
 
   for (var i = 0; i < Math.pow(dimension, 2); i++) {
     leftValue = (i % dimension) * (sideLen + 1);
     topValue = parseInt(i / dimension) * (sideLen + 1);
-    newDivPart = $divParts.filter("[no=" + arr[i] +"]");
+    aDivPart = $divParts.filter("[no=" + arr[i] +"]");
 
-    newDivPart.attr({
+    aDivPart.attr({
       "left": leftValue,
       "top": topValue
     });
 
-    newDivPart.css({
+    aDivPart.animate({
       left: leftValue + "px",
       top: topValue + "px"
-    });
+    }, 200);
 
-    $jigsawPart.append(newDivPart);
+    $jigsawPart.append(aDivPart);
   }
+
+  // timing start
+  time = 0;
+  timer = setInterval(timing, 1000);
 
   ifStart = true;
 }
 
 function win() {
-  var $divParts = $("#jigsaw-part").find("div");
+  var $divParts = $("#jigsaw-part").find("div").not(".tips");
 
   if (ifStart) {
     for (var i = 0; i < Math.pow(dimension, 2); i++) {
@@ -314,16 +372,24 @@ function win() {
     // setTimeout(function() {
     //   alert("You Win!");
     // }, 200);
+    clearInterval(timer);
     ifStart = false;
   }
 }
 
 function initialize() {
   // default
+  // tips do not show
+  $("#tips").attr("show", "no");
+
   addJigsawPart();
   addPicList();
   divide();
   choosePic();
+
+  // initialize time
+  time = -1;
+  timing();
 
   ifStart = false;
 
@@ -334,16 +400,38 @@ function changeLevel() {
   if (dimension != 5) dimension++;
   else dimension = 3;
 
-  $("#jigsaw-part").find("div").remove();
+  $("#jigsaw-part").find("div").not(".tips").remove();
 
   divide();
 
+  // recover time
+  clearInterval(timer);
+  time = -1;
+  timing();
+
   ifStart = false;
+}
+
+function showTips() {
+  var $tips = $("#jigsaw-part").find("div").filter(".tips");
+  var $tipButton = $("#tips");
+  var ifShow = $tipButton.attr("show");
+
+  if (ifShow == "no") {
+    $tips.css("opacity", 1);
+    $tipButton.empty();
+    $tipButton.attr("show", "yes").html("关闭提示");
+  } else {
+    $tips.css("opacity", 0);
+    $tipButton.empty();
+    $tipButton.attr("show", "no").html("开启提示");
+  }
 }
 
 function gameStart() {
   initialize();
 
+  $("#tips").click(showTips);
   $("#start").click(restart);
   $("#level").click(changeLevel);
 }

@@ -15,6 +15,10 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 100%;
 }
 
@@ -23,8 +27,31 @@ h1 {
   font-family: "Century Gothic", "Microsoft YaHei UI Light", "Bahnschrift Light", "Calibri Light", Arial, sans-serif;
   font-size: 40px;
   letter-spacing: .1em;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
   text-align: center;
+}
+
+#time-bar {
+  color: #ECDE96;
+  font-family: "Century Gothic", sans-serif;
+  font-size: 40px;
+  height: 48px;
+  letter-spacing: .1em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#colon {
+  position: relative;
+  top: -3px;
+}
+
+.minute {
+  color: #3D94E0;
+}
+
+.second {
+  color: #EF4949;
 }
 
 #game-area {
@@ -73,19 +100,30 @@ h1 {
 .div-part {
   /*background-attachment: fixed;*/
   border-color: #7D7D7D;
+  -webkit-border-radius: 10%;
+     -moz-border-radius: 10%;
+          border-radius: 10%;
   border-style: solid;
   border-width: 1px;
-  opacity: .9;
   position: absolute;
 }
 
 .div-part:hover {
-  -webkit-transform: scale(1.02);
-     -moz-transform: scale(1.02);
-      -ms-transform: scale(1.02);
-       -o-transform: scale(1.02);
-          transform: scale(1.02);
+  -webkit-transform: scale(1.05);
+     -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+       -o-transform: scale(1.05);
+          transform: scale(1.05);
   z-index: 1;
+}
+
+.tips {
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  z-index: -1;
 }
 
 .pic-button {
@@ -124,4 +162,12 @@ h1 {
       -ms-transform: scale(1.02);
        -o-transform: scale(1.02);
           transform: scale(1.02);
+}
+
+.pic-chosen:hover {
+  -webkit-transform: scale(1.5);
+     -moz-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+       -o-transform: scale(1.5);
+          transform: scale(1.5);
 }
