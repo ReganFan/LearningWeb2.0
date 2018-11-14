@@ -4,12 +4,11 @@ var dimension = 4;
 var picLength = 360;
 var picUrl = "./asserts/images/Riven.jpg";
 var ifStart = false;
+var online;
 var time;
 var timer;
 
 function addJigsawPart() {
-  $("#jigsaw-part").remove();
-
   var $jigsawPart = $("<div></div>");
   $jigsawPart.attr("id", "jigsaw-part").addClass("jigsaw-area");
   $jigsawPart.width(picLength + 5 + 1).height(picLength + 5 + 1);
@@ -307,7 +306,7 @@ function canRestore(array) {
 
 function restart() {
   // voice prompts for starting
-  voicePrompt("start");
+  if (window.AudioContext && online) voicePrompt("start");
 
   // recover time
   clearInterval(timer);
@@ -368,10 +367,11 @@ function win() {
     }
 
     // voice prompts for ending
-    voicePrompt("end");
-    // setTimeout(function() {
-    //   alert("You Win!");
-    // }, 200);
+    if (window.AudioContext && online) voicePrompt("end");
+    else
+      setTimeout(function() {
+        alert("You Win!");
+      }, 200);
     clearInterval(timer);
     ifStart = false;
   }
@@ -392,6 +392,16 @@ function initialize() {
   timing();
 
   ifStart = false;
+
+  // check if the Internet has been connected
+  // Thank https://stackoverflow.com/questions/14283124/navigator-online-not-always-working
+  (function isOnline() {
+    var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHttp");
+    xhr.onload = function() { online = true; };
+    xhr.onerror = function() { online = false; };
+    xhr.open("GET", "https://reganfan.github.io/LearningWeb2.0/docs/Homework-6-Fifteen-Puzzle/asserts/audio/Riven_start.mp3", true);
+    xhr.send();
+  })();
 
   $("#jigsaw-part").click(move).mouseover(win).click(changePic);
 }
