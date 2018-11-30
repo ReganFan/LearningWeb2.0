@@ -1,0 +1,83 @@
+/* info_style.css, the stylesheet for info.html, created by Yongye Fan, 27/11/2018 */
+html {
+  height: 100%;
+  user-select: none;
+  width: 100%;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url(../image/background-2.jpg);
+  background-position: right center;
+  background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  background-color: #FFF;
+  border: 0;
+  border-radius: 10px;
+  font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+  height: 435px;
+  max-height: 435px;
+  max-width: 320px;
+  opacity: .8;
+  padding: 25px;
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  width: 320px;
+}
+
+.logo {
+  height: 128px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  width: 128px;
+}
+
+.logo img {
+  height: 128px;
+  width: 128px;
+}
+
+.info-bar {
+  color: #FE6483;
+  font-size: 20px;
+  height: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.info-list > div {
+  height: 48px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.info-list img {
+  height: 48px;
+  width: 48px;
+}
+
+.info-content {
+  border-bottom-color: #B7B2B2;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  float: right;
+  font-size: 20px;
+  height: 38px;
+  max-height: 38px;
+  max-width: 240px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 16px 0 16px;
+  user-select: text;
+  width: 240px;
+}

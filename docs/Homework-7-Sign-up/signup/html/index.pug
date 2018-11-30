@@ -1,0 +1,66 @@
+doctype html
+// index.html, a simple sign up web page, created by Yongye Fan, 27/11/2018
+html(lang='en')
+  head
+    title Simple Sign up Page
+
+    meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+    meta(name='author' content='Yongye Fan')
+    meta(name='revised' content='Yongye Fan, 27/11/2018')
+    meta(name='generator' content='Sublime Text 3')
+    meta(name='description' content='Homework 7-Sign up')
+
+    link(rel='stylesheet' type='text/css' href='../css/style.css' media='screen')
+    link(rel='shortcut icon' type='image/png' href='../image/register.png')
+
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    script(src='../js/validityCheck.js')
+    script(src='../js/script.js')
+
+  body
+    .container
+      .logo
+        img(src='../image/register.png' alt='用户注册')
+
+      .info-bar 用户注册
+
+      form(method='POST')
+        .username
+          if username
+            input(name='username' value=username)
+          else
+            input(name='username' value='用户名')
+
+          .error 请输入6~18位英文字母、数字或下划线，且以英文字母开头
+
+        .student-id
+          input(
+            name='student-id'
+            value='学号'
+          )
+          .error 请输入8位数字学号，不能以0开头
+
+        .mobile
+          input(
+            name='mobile'
+            value='手机'
+          )
+          .error 请输入11位数字电话号码，不能以0开头
+
+        .email
+          input(
+            name='email'
+            value='邮箱'
+          )
+          .error 请输入正确格式的邮箱，如'**@**.com'
+
+        .buttons
+          input.reset(
+            type='reset'
+            value='重置'
+          )
+
+          input.submit(
+            type='submit'
+            value='提交'
+          )
