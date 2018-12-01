@@ -6,7 +6,7 @@ $(function() {
   var $infoContent = $('input').not('.reset').not('.submit');
   var defaultValue = ['用户名', '学号', '手机', '邮箱'];
 
-  // when url has the query of username
+  // when url has the query of username, show bold
   var nameTag = $infoContent.eq(0);
   var hasQueryUsername = false;
   if (nameTag.val() != defaultValue[0]) {
@@ -14,6 +14,7 @@ $(function() {
     nameTag.addClass('input-finish');
   }
 
+  // first input, clear default value
   $infoContent.focus(function() {
     var $info = $(this);
     if ($info.val() == defaultValue[$infoContent.index($info)]) $info.val('');
@@ -32,10 +33,14 @@ $(function() {
     if (!$info.val()) $info.val(defaultValue[$infoContent.index($info)]);
     else {
       if ($info.val() != defaultValue[$infoContent.index($info)]) $info.addClass('input-finish');
+      else {
+        if ($info.hasClass('input-finish')) $info.removeClass('input-finish');
+      }
     }
 
     checkInputValid($info);
 
+    // check input value at real time
     $info.on('input propertychange', function() { checkInputValid($(this)); });
   });
 
@@ -49,7 +54,16 @@ $(function() {
 
     $infoContent.off('input propertychange');
 
-    // when url has the query of username
+    // when url has the query of username, make the input of username bold
     if (hasQueryUsername) nameTag.addClass('input-finish');
   });
+
+  // when submit page with errors, keep error messages
+  for (var i = 0; i < $infoContent.length; i++) {
+    if ($infoContent.eq(i).val() != defaultValue[i] && !$infoContent.eq(i).hasClass('input-finish')) {
+      $infoContent.eq(i).addClass('input-finish');
+
+      checkInputValid($infoContent.eq(i));
+    }
+  }
 });

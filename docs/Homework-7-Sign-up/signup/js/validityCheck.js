@@ -43,13 +43,13 @@ var validityCheck = {
 
   ifUserInfoUnique: function(userlist, user, info) {
     for (var aUser in userlist) {
-      for (var infoContent in aUser) {
-        if (infoContent == user[info]) return false;
-      }
+      if (userlist[aUser][info] == user[info]) return false;
     }
 
     return true;
   }
 };
 
-if (typeof validityCheck == 'undefined') module.exports = validityCheck;
+// export as a module
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+  module.exports = validityCheck;

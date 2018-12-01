@@ -22,36 +22,50 @@ html(lang='en')
       .logo
         img(src='../image/register.png' alt='用户注册')
 
-      .info-bar 用户注册
+      if !error
+        .info-bar 用户注册
+      else
+        if error.errorInfo.length == 1
+          .error-bar #{error.errorInfo.firstError}
+        else
+          .error-bar
+            .formError #{error.errorInfo.firstError}
+            .uniqueError #{error.errorInfo.secondError}
 
       form(method='POST')
         .username
-          if username
-            input(name='username' value=username)
+          if !error
+            if username
+              input(name='username' value=username)
+            else
+              input(name='username' value='用户名')
           else
-            input(name='username' value='用户名')
+            input(name='username' value=error.userInfo.username)
 
           .error 请输入6~18位英文字母、数字或下划线，且以英文字母开头
 
         .student-id
-          input(
-            name='student-id'
-            value='学号'
-          )
+          if !error
+            input(name='student-id' value='学号')
+          else
+            input(name='student-id' value=error.userInfo.id)
+
           .error 请输入8位数字学号，不能以0开头
 
         .mobile
-          input(
-            name='mobile'
-            value='手机'
-          )
+          if !error
+            input(name='mobile' value='手机')
+          else
+            input(name='mobile' value=error.userInfo.mobile)
+
           .error 请输入11位数字电话号码，不能以0开头
 
         .email
-          input(
-            name='email'
-            value='邮箱'
-          )
+          if !error
+            input(name='email' value='邮箱')
+          else
+            input(name='email' value=error.userInfo.email)
+
           .error 请输入正确格式的邮箱，如'**@**.com'
 
         .buttons

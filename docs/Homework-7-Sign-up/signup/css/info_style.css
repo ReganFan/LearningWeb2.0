@@ -1,7 +1,10 @@
 /* info_style.css, the stylesheet for info.html, created by Yongye Fan, 27/11/2018 */
 html {
   height: 100%;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   width: 100%;
 }
 
@@ -9,7 +12,9 @@ body {
   background-attachment: fixed;
   background-image: url(../image/background-2.jpg);
   background-position: right center;
-  background-size: cover;
+  -moz-background-size: cover;
+    -o-background-size: cover;
+       background-size: cover;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -20,7 +25,9 @@ body {
 .container {
   background-color: #FFF;
   border: 0;
-  border-radius: 10px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
   font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
   height: 435px;
   max-height: 435px;
@@ -78,6 +85,9 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 10px 16px 0 16px;
-  user-select: text;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
   width: 240px;
 }
