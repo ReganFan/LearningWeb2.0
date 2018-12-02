@@ -6,6 +6,11 @@ body {
   margin: 0;
   padding: 0;
   position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
   width: 100%;
 }
 
@@ -24,11 +29,11 @@ body {
 }
 
 #button {
-  height: 50px;
+  height: 28px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 135px;
-  width: 50px;
+  width: 28px;
 }
 
 #info-bar {
@@ -120,6 +125,18 @@ li {
   position: absolute;
   top: 60px;
   width: 180px;
+  z-index: -1;
+}
+
+#button:hover #control-ring-container {
+  z-index: 0;
+}
+
+#control-ring {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* ring buttons */
@@ -203,8 +220,13 @@ li {
 }
 
 .apb {
-  height: 50px;
-  width: 50px;
+  height: 28px;
+  width: 28px;
+  z-index: -1;
+}
+
+#button:hover .apb {
+  z-index: 0;
 }
 
 .icon {
