@@ -2,7 +2,7 @@
 // default global variables
 var dimension = 4;
 var picLength = 360;
-var picUrl = "./asserts/images/Riven.jpg";
+var picUrl = "./assets/images/Riven.jpg";
 var ifStart = false;
 var online;
 var time;
@@ -75,7 +75,7 @@ function addPicList() {
     var topValue = i * (sideLen + 2 + 4);
 
     $picButton.css({
-      "background-image": "url(./asserts/images/" + $picButton.attr("name") + ".jpg)",
+      "background-image": "url(./assets/images/" + $picButton.attr("name") + ".jpg)",
       top: topValue + "px"
     }).css(pos, posValue + "px");
 
@@ -99,7 +99,7 @@ function changePic(event) {
 
   var $divParts = $("#jigsaw-part").find("div").not(".tips");
 
-  picUrl = "./asserts/images/" + $target.attr("name") + ".jpg";
+  picUrl = "./assets/images/" + $target.attr("name") + ".jpg";
 
   $divParts.remove();
   divide();
@@ -219,7 +219,7 @@ function voicePrompt(tag) {
     if ($divParts.eq(j).attr("no") != j) return;
   }
 
-  var voiceUrl = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-6-Fifteen-Puzzle/asserts/audio/" +
+  var voiceUrl = "https://reganfan.github.io/LearningWeb2.0/docs/Homework-6-Fifteen-Puzzle/assets/audio/" +
                  picName + "_" + tag + ".mp3";
 
   var audio = new AudioContext();
@@ -399,7 +399,7 @@ function initialize() {
     var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHttp");
     xhr.onload = function() { online = true; };
     xhr.onerror = function() { online = false; };
-    xhr.open("GET", "https://reganfan.github.io/LearningWeb2.0/docs/Homework-6-Fifteen-Puzzle/asserts/audio/Riven_start.mp3", true);
+    xhr.open("GET", "https://reganfan.github.io/LearningWeb2.0/docs/Homework-6-Fifteen-Puzzle/assets/audio/Riven_start.mp3", true);
     xhr.send();
   })();
 

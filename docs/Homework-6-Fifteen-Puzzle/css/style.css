@@ -1,13 +1,13 @@
 /* style.css, the stylesheet for index.html, created by Yongye Fan, 08/11/2018 */
 html {
-  cursor: url(../asserts/images/cursor_auto.cur), auto;
+  cursor: url(../assets/images/cursor_auto.cur), auto;
   height: 100%;
   width: 100%;
 }
 
 body {
   background-attachment: fixed;
-  background-image: url(../asserts/images/mttargon-once-in-a-lifetime.jpg);
+  background-image: url(../assets/images/mttargon-once-in-a-lifetime.jpg);
   background-position: center;
   -moz-background-size: cover;
     -o-background-size: cover;
@@ -70,7 +70,7 @@ h1 {
   border-style: solid;
   border-width: 1px;
   color: #E7DDAB;
-  cursor: url(../asserts/images/cursor_pointer.cur), pointer;
+  cursor: url(../assets/images/cursor_pointer.cur), pointer;
   font-family: "Microsoft YaHei UI";
   font-size: 15px;
   font-weight: bold;
@@ -133,7 +133,7 @@ h1 {
   border-color: #7D7D7D;
   border-style: solid;
   border-width: 1px;
-  cursor: url(../asserts/images/cursor_pointer.cur), pointer;
+  cursor: url(../assets/images/cursor_pointer.cur), pointer;
   opacity: .4;
   outline: none;
   padding: 0;
