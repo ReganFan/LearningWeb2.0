@@ -2,7 +2,7 @@
 
 ## 简介
 
-　　在[Homework 3 - Ring Menu](https://reganfan.github.io/LearningWeb2.0/docs/Homework-3-Ring-Menu/index.html)的基础上，将菜单按钮变为A~E五个按钮，点击其中之一均可向本地Server发送随机数请求(**在1~3秒内，随机返回一个1~10之间的整数**)，并将获得的随机数显示在按钮右上角；当五个随机数均获取后，可以点击灰色大气泡(原信息框)获取五个随机数之和。同时可以根据不同要求，分别设计对应的程序实现自动点击按钮计算。
+　　在[Homework 3 - Ring Menu](https://reganfan.github.io/LearningWeb2.0/docs/Homework-3-Ring-Menu/index.html)的基础上，将菜单按钮变为`A~E`五个按钮，点击其中之一均可向本地Server发送随机数请求(**在`1~3`秒内，随机返回一个`1~10`之间的整数**)，并将获得的随机数显示在按钮右上角；当五个随机数均获取后，可以点击灰色大气泡(原信息框)获取五个随机数之和。同时可以根据不同要求，分别设计对应的程序实现自动点击按钮计算。
 
 ## 示例
 
