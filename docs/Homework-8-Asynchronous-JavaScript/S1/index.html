@@ -1,0 +1,35 @@
+<!-- index.html, a simple web ring asynchronous sum calculator, modified by Yongye Fan, 4/12/2018 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>环形Async求和计算器(人工交互)</title>
+    <meta charset="utf-8">
+    <link rel="icon" sizes="196x196" href="../assets/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div id="at-plus-container">
+      <div id="bottom-positioner">
+        <div id="button">
+          <div id="info-bar">
+            <div style="display:block" class="info"><span class="sum"></span></div>
+          </div>
+          <div id="control-ring-container">
+            <ul id="control-ring">
+              <li title="Value A" class="button"><span class="num"></span>A</li>
+              <li title="Value B" class="button"><span class="num"></span>B</li>
+              <li title="Value C" class="button"><span class="num"></span>C</li>
+              <li title="Value D" class="button"><span class="num"></span>D</li>
+              <li title="Value E" class="button"><span class="num"></span>E</li>
+            </ul>
+          </div>
+          <div class="apb">
+            <div class="icon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

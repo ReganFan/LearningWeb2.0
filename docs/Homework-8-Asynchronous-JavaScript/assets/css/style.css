@@ -1,0 +1,276 @@
+/* style.css, stylesheet for sum calculator index page, created by Yongye Fan, 4/12/2018 */
+/* Browser prefix is added by Autoprefixer */
+body {
+  bottom: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+  width: 100%;
+}
+
+#at-plus-container {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 180px;
+}
+
+.message {
+  color: #58C193;
+  font-family: 'Microsoft YaHei UI Light', sans-serif;
+  font-size: 23px;
+  height: 33px;
+  position: absolute;
+  text-align: center;
+  top: 300px;
+  width: 100%;
+}
+
+.sequence {
+  color: #58C193;
+  display: none;
+  font-family: sans-serif;
+  font-size: 27px;
+  height: 36px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
+  top: 360px;
+  width: 150px;
+}
+
+#bottom-positioner {
+  bottom: 25px;
+  height: 240px;
+  position: absolute;
+  width: 180px;
+}
+
+#button {
+  height: 28px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 135px;
+  width: 28px;
+}
+
+#info-bar {
+  /*background-color: #7E7E7E;*/
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  height: 26px;
+  left: 77px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 137px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 26px;
+  z-index: 1;
+}
+
+#button:hover #info-bar {
+  height: 130px;
+  left: 25px;
+  opacity: 1;
+  top: 0;
+  width: 130px;
+}
+
+.info {
+  height: 130px;
+  left: -52px;
+  position: absolute;
+  top: -52px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 130px;
+}
+
+#button:hover .info {
+  left: 0;
+  top: 0;
+}
+
+.sum {
+  color: #58C193;
+  font-family: sans-serif;
+  font-size: 38px;
+  height: 44px;
+  left: 42px;
+  position: absolute;
+  text-align: center;
+  top: 42px;
+  width: 44px;
+}
+
+li {
+  list-style: none;
+}
+
+#control-ring-container {
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  height: 180px;
+  left: 0;
+  position: absolute;
+  top: 60px;
+  width: 180px;
+  z-index: -1;
+}
+
+#button:hover #control-ring-container {
+  z-index: 0;
+}
+
+#control-ring {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* ring buttons */
+#control-ring li {
+  /*background-color: #303F9F;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  -moz-background-size: 50%;
+    -o-background-size: 50%;
+       background-size: 50%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  color: #58C193;
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+  height: 26px;
+  left: 77px;
+  opacity: 0;
+  padding-top: 4px;
+  position: absolute;
+  text-align: center;
+  top: 77px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 26px;
+}
+
+#button:hover #control-ring li {
+  height: 29px;
+  opacity: 1;
+  width: 33px;
+}
+
+.num {
+  background-color: red;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  height: 18px;
+  padding-top: 2px;
+  position: absolute;
+  right: -10px;
+  text-align: center;
+  top: -5px;
+  width: 20px;
+}
+
+.button-enable {
+  background-color: #303F9F;
+  cursor: pointer;
+}
+
+.button-disable {
+  background-color: #7E7E7E !important;
+}
+
+/* mask button */
+#button:hover #control-ring li:nth-child(1) {
+  left: 1px;
+  top: 55px;
+}
+
+/* history button */
+#button:hover #control-ring li:nth-child(2) {
+  left: 2px;
+  top: 95px;
+}
+
+/* message button */
+#button:hover #control-ring li:nth-child(3) {
+  left: 23px;
+  top: 128px;
+}
+
+/* setting button */
+#button:hover #control-ring li:nth-child(4) {
+  left: 58px;
+  top: 146px;
+}
+
+/* sign button */
+#button:hover #control-ring li:nth-child(5) {
+  left: 102px;
+  top: 142px;
+}
+
+.apb {
+  height: 28px;
+  width: 28px;
+  z-index: -1;
+}
+
+#button:hover .apb {
+  z-index: 0;
+}
+
+.icon {
+  background-color: #979DD2;
+  background-image: url(../images/atplus_white.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  -moz-background-size: 80%;
+    -o-background-size: 80%;
+       background-size: 80%;
+  -webkit-border-radius: 50%;
+     -moz-border-radius: 50%;
+          border-radius: 50%;
+  height: 26px;
+  left: 77px;
+  position: absolute;
+  top: 137px;
+  -webkit-transition: all 0.5s;
+     -moz-transition: all 0.5s;
+       -o-transition: all 0.5s;
+          transition: all 0.5s;
+  width: 26px;
+}
+
+#button:hover .icon {
+  background-color: #303F9F;
+  background-image: url(../images/atplus_green.png);
+  height: 50px;
+  left: 65px;
+  top: 135px;
+  width: 50px;
+}
