@@ -1,0 +1,46 @@
+doctype html
+// info.html, a simple user info web page, created by Yongye Fan, 22/12/2018
+html(lang='en')
+  head
+    title User Info(#{user.username})
+
+    link(rel='stylesheet' type='text/css' href='/stylesheets/info.css' media='screen')
+    link(rel='stylesheet' type='text/css' href='/stylesheets/jquery.mCustomScrollbar.css')
+    link(rel='shortcut icon' type='image/png' href='/images/info.png')
+
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    script(src='/javascripts/jquery.mCustomScrollbar.concat.min.js')
+
+  body
+    .container
+      .logo
+        img(src='/images/info.png' alt='用户信息')
+
+      if accessErr
+        .info-bar.access-error 注意：只能够访问自己的数据！
+      else
+        .info-bar 用户信息
+
+      .info-list
+        .username
+          img(src='/images/username.png' alt='用户名' title='用户名')
+          .info-content #{user.username}
+
+        .student-id
+          img(src='/images/student_id.png' alt='学号' title='学号')
+          .info-content #{user.id}
+
+        .mobile
+          img(src='/images/mobile.png' alt='手机' title='手机')
+          .info-content #{user.mobile}
+
+        .email
+          img(src='/images/mail.png' alt='邮箱' title='邮箱')
+          .info-content #{user.email}
+
+      a.exit(href='/logout' title='退出登录')
+        img#exit-pic(src='/images/exit.png' alt='退出')
+        img#exit-pic-hover(src='/images/exit_hover.png' alt='退出')
+        span.exit-note 退出
+
+    script(src='/javascripts/info.js')

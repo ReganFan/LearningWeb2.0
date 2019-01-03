@@ -1,0 +1,146 @@
+/* info.css, the stylesheet for info.html, created by Yongye Fan, 22/12/2018 */
+html {
+  height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url(/images/background-2.jpg);
+  background-position: right center;
+  -moz-background-size: cover;
+    -o-background-size: cover;
+       background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  background-color: #FFF;
+  border: 0;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+  height: 465px;
+  max-height: 465px;
+  max-width: 320px;
+  opacity: .8;
+  padding: 25px 25px 10px 25px;
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  width: 320px;
+}
+
+.logo {
+  height: 128px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  width: 128px;
+}
+
+.logo img {
+  height: 128px;
+  width: 128px;
+}
+
+.info-bar {
+  color: #FE6483;
+  font-size: 20px;
+  height: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.access-error {
+  -webkit-transition: all 1s;
+     -moz-transition: all 1s;
+       -o-transition: all 1s;
+          transition: all 1s;
+}
+
+.info-list > div {
+  height: 48px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.info-list img {
+  height: 48px;
+  width: 48px;
+}
+
+.info-content {
+  border-bottom-color: #B7B2B2;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  float: right;
+  font-size: 20px;
+  height: 38px;
+  max-height: 38px;
+  max-width: 240px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 16px 0 16px;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  width: 240px;
+}
+
+.exit {
+  cursor: pointer;
+  float: right;
+  height: 24px;
+  margin-top: 10px;
+  outline: none;
+  overflow: hidden;
+  text-decoration: none;
+  width: 64px;
+}
+
+.exit img {
+  height: 24px;
+  width: 24px;
+}
+
+#exit-pic {
+  display: inline;
+}
+
+#exit-pic-hover {
+  display: none;
+}
+
+.exit-note {
+  color: #515151;
+  float: right;
+  font-size: 14px;
+  font-weight: bold;
+  height: 22px;
+  padding-top: 2px;
+  width: 36px;
+}
+
+.exit:hover #exit-pic {
+  display: none;
+}
+
+.exit:hover #exit-pic-hover {
+  display: inline;
+}
+
+.exit:hover .exit-note {
+  color: #FE6483;
+}

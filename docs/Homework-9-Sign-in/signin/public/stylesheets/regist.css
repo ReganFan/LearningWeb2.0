@@ -1,0 +1,215 @@
+/* regist.css, the stylesheet for regist.html, created by Yongye Fan, 22/12/2018 */
+html {
+  height: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: url(/images/background-2.jpg);
+  background-position: right center;
+  -moz-background-size: cover;
+    -o-background-size: cover;
+       background-size: cover;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.container {
+  background-color: #FFF;
+  border: 0;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  font-family: "Futura", "Trebuchet MS", Arial, sans-serif;
+  max-height: 670px;
+  max-width: 320px;
+  opacity: .8;
+  padding: 15px 25px 25px 25px;
+  position: absolute;
+  right: 10%;
+  top: 1%;
+  width: 320px;
+}
+
+.return {
+  cursor: pointer;
+  float: left;
+  height: 24px;
+  outline: none;
+  overflow: hidden;
+  text-decoration: none;
+  width: 24px;
+}
+
+.return img {
+  height: 24px;
+  width: 24px;
+}
+
+#return-pic {
+  display: inline;
+}
+
+#return-pic-hover {
+  display: none;
+}
+
+.return:hover #return-pic {
+  display: none;
+}
+
+.return:hover #return-pic-hover {
+  display: inline;
+}
+
+.logo {
+  clear: left;
+  height: 128px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  width: 128px;
+}
+
+img {
+  height: 128px;
+  width: 128px;
+}
+
+.info-bar,
+.error-bar {
+  color: #FE6483;
+  height: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+.info-bar {
+  font-size: 20px;
+}
+
+.error-bar {
+  font-size: 15px;
+}
+
+.username,
+.password,
+.re-password,
+.student-id,
+.mobile,
+.email {
+  height: 48px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.username {
+  margin-top: 10px;
+}
+
+input {
+  background: none;
+  border-bottom-color: #B7B2B2;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  color: #B7B2B2;
+  font-size: 100%;
+  height: 30px;
+  -webkit-transition: border .2s;
+     -moz-transition: border .2s;
+       -o-transition: border .2s;
+          transition: border .2s;
+  width: 100%;
+}
+
+input:focus {
+  opacity: 1;
+  outline: none;
+}
+
+input:not(.reset):not(.submit) {
+  height: 28px;
+  margin-left: 8%;
+  padding-bottom: 2px;
+  padding-left: 1.5%;
+  width: 82.5%;
+}
+
+input:not(.reset):not(.submit):focus {
+  border-bottom: 1.5px solid #000;
+  color: #000;
+  font-weight: bold;
+}
+
+.input-finish {
+  color: #000;
+  font-weight: bold;
+}
+
+.input-error {
+  border-bottom: 1.5px solid #F00 !important;
+}
+
+.error {
+  color: #F00;
+  font-size: 12px;
+  height: 18px;
+  margin-left: 8%;
+  opacity: 0;
+  width: 82.5%;
+}
+
+.error-show {
+  opacity: 1;
+}
+
+.buttons {
+  margin-bottom: 15px;
+  margin-top: 25px;
+  text-align: center;
+  width: 100%;
+}
+
+.reset,
+.submit {
+  border: 0;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 .8px .5px .6px #B7B2B2;
+     -moz-box-shadow: 0 .8px .5px .6px #B7B2B2;
+          box-shadow: 0 .8px .5px .6px #B7B2B2;
+  color: #FFF;
+  font-size: 20px;
+  height: 40px;
+  opacity: .8;
+  -webkit-transition: all .2s;
+     -moz-transition: all .2s;
+       -o-transition: all .2s;
+          transition: all .2s;
+  width: 32.5%;
+}
+
+.reset {
+  background-color: #B7B2B2;
+  margin-left: 8%;
+}
+
+.submit {
+  background-color: #FE6483;
+}
+
+.reset:hover,
+.submit:hover {
+  cursor: pointer;
+  opacity: 1;
+}

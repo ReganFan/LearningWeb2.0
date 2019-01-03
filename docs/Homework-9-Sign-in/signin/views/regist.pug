@@ -1,0 +1,77 @@
+doctype html
+// regist.html, a simple sign up web page, created by Yongye Fan, 22/12/2018
+html(lang='en')
+  head
+    title Sakura 桜 | Sign up
+
+    link(rel='stylesheet' type='text/css' href='/stylesheets/regist.css' media='screen')
+    link(rel='shortcut icon' type='image/png' href='/images/register.png')
+
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    script(src='/javascripts/validityCheck.js')
+    script(src='/javascripts/regist.js')
+
+  body
+    .container
+      a.return(href='/login' title='返回登录')
+          img#return-pic(src='/images/return.png' alt='返回')
+          img#return-pic-hover(src='/images/return_hover.png' alt='返回')
+
+      .logo
+        img(src='/images/register.png' alt='用户注册')
+
+      if !error
+        .info-bar 用户注册
+      else
+        .error-bar #{error.errorInfo}
+
+      form(method='POST')
+        .username
+          if !error
+            if username
+              input(name='username' value=username)
+            else
+              input(name='username' value='用户名')
+          else
+            input(name='username' value=error.userInfo.username)
+
+          .error
+
+        .password
+          input(name='password' value='密码')
+
+          .error
+
+        .re-password
+          input(name='re-password' value='重复密码')
+
+          .error
+
+        .student-id
+          if !error
+            input(name='student-id' value='学号')
+          else
+            input(name='student-id' value=error.userInfo.id)
+
+          .error
+
+        .mobile
+          if !error
+            input(name='mobile' value='手机')
+          else
+            input(name='mobile' value=error.userInfo.mobile)
+
+          .error
+
+        .email
+          if !error
+            input(name='email' value='邮箱')
+          else
+            input(name='email' value=error.userInfo.email)
+
+          .error
+
+        .buttons
+          input.submit(type='submit' value='提交')
+
+          input.reset(type='reset' value='重置')
